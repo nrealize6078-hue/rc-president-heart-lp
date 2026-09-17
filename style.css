@@ -707,13 +707,22 @@ a:focus-visible,button:focus-visible {
     font-size:clamp(16px,5.4vw,23px)
   }
   .ripple-words {
-    flex-wrap:wrap;
-    gap:13px;
-    font-size:13px;
+    flex-direction:column;
+    flex-wrap:nowrap;
+    gap:0;
+    font-size:14px;
     margin:30px 0
   }
+  .ripple-words span {
+    width:8.6em;
+    text-align:center;
+    padding:9px 0
+  }
   .ripple-words i {
-    font-size:12px
+    display:block;
+    font-size:13px;
+    transform:rotate(90deg);
+    margin:7px 0
   }
   .ripple>p {
     font-size:clamp(11px,3.3vw,14px)
