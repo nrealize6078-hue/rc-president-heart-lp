@@ -10,7 +10,9 @@
 | `index.html` | 本文（全7セクション＋フッター＋案内モーダル）。整形済みで直接編集できる |
 | `style.css` | デザイン。セクションごとに `/* ==== HERO ==== */` のコメントで区切ってある |
 | `script.js` | 「旅のはじめ方を見る」モーダルの開閉とコピー処理（下記「補ったもの」参照） |
-| `assets/hero.jpg` | ファーストビューの写真（186KB） |
+| `assets/hero.jpg` | ファーストビューの写真（187KB） |
+| `assets/ogp.jpg` | 1200×630。SNS・LINEでURLを送ったときのサムネイル |
+| `tools/build_ogp.py` | 上のOGP画像を作り直すスクリプト（`python tools/build_ogp.py`） |
 
 ビルド不要。`index.html` をそのまま置けば動く静的サイト。
 
@@ -69,8 +71,23 @@ cd "C:/Users/realize5/Documents/Claude/rc-president-heart-lp" && git add -A && g
 **こちらを直しても元サイトは変わらない。** 今後はGitHub Pages側を正とし、
 元サイトは使わない（または案内リンクをこちらへ差し替える）のが分かりやすい。
 
+### OGP画像
+
+`assets/ogp.jpg`（1200×630）。ヒーロー写真に同じ紺のベールを重ね、
+游明朝で「その想いは、まだ／もっと届く。」を置いた構図。
+
+文言や配色を変えるときは `tools/build_ogp.py` を直して作り直す。
+
+```bash
+python tools/build_ogp.py
+```
+
+**URLを変えたら `index.html` の `og:url` / `og:image` / `canonical` も直すこと。**
+OGPは絶対URLで書く必要があるため、相対パスにできない。
+
+FacebookやLINEは一度読んだOGPをキャッシュするので、差し替え直後に古い画像が出る場合は
+[Facebookシェアデバッガー](https://developers.facebook.com/tools/debug/)で再取得する。
+
 ### まだ入れていないもの
 
-- OGP画像（LINEやSNSでURLを送ったときのサムネイル）。必要なら1200×630を作って
-  `<meta property="og:image">` を足す
 - 独自ドメイン（`realizeclub.net` 配下に置きたい場合はCNAME設定が必要）
