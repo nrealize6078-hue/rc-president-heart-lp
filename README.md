@@ -43,8 +43,34 @@ python -m http.server 8956 --directory "C:/Users/realize5/Documents/Claude/rc-pr
   「旅のはじめ方を見る」「文章をコピー」ボタンが無反応だった。最小構成で補完してある。
   コピーされる定型文は `script.js` の `MESSAGE` で変更できる。
 
-## 公開するときの選択肢
+## 公開先（2026年9月17日 公開済み）
 
-- エックスサーバー（realizeclub.net配下）にFTPで置く ＝ 他のLPと同じ運用
-- ChatGPTのサイト公開を使い続けるなら、そちら側で本文を差し替える必要がある
-  （このフォルダを編集しても元サイトには反映されない）
+```
+https://nrealize6078-hue.github.io/rc-president-heart-lp/
+```
+
+| | |
+|---|---|
+| リポジトリ | [nrealize6078-hue/rc-president-heart-lp](https://github.com/nrealize6078-hue/rc-president-heart-lp)（public） |
+| 公開方法 | GitHub Pages（main / ルート） |
+| 検索エンジン | **掲載する**（noindexは入れていない） |
+
+### 直したあとの反映
+
+このフォルダがそのままリポジトリなので、コミットしてpushすれば1〜2分で本番に出る。
+
+```bash
+cd "C:/Users/realize5/Documents/Claude/rc-president-heart-lp" && git add -A && git commit -m "文言修正" && git push
+```
+
+### 元サイトとの関係
+
+元の `...chatgpt.site` のページは別物として残っている。
+**こちらを直しても元サイトは変わらない。** 今後はGitHub Pages側を正とし、
+元サイトは使わない（または案内リンクをこちらへ差し替える）のが分かりやすい。
+
+### まだ入れていないもの
+
+- OGP画像（LINEやSNSでURLを送ったときのサムネイル）。必要なら1200×630を作って
+  `<meta property="og:image">` を足す
+- 独自ドメイン（`realizeclub.net` 配下に置きたい場合はCNAME設定が必要）
