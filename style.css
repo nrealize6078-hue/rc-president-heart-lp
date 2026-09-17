@@ -1,0 +1,767 @@
+:root {
+  --navy:#102736;
+  --ink:#182c36;
+  --gold:#debd80;
+  --paper:#fcfcfa;
+  --muted:#58666c
+}
+
+* {
+  box-sizing:border-box
+}
+
+html {
+  scroll-behavior:smooth;
+  scroll-padding-top:90px
+}
+
+body {
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  line-height:1.9
+}
+
+a {
+  color:inherit;
+  text-decoration:none
+}
+
+button {
+  font:inherit;
+  cursor:pointer
+}
+
+header {
+  height:88px;
+  padding:0 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:#fff
+}
+
+.brand {
+  font-family:Georgia,serif;
+  letter-spacing:.13em;
+  font-size:23px;
+  line-height:1.3
+}
+
+.brand b {
+  font-weight:400
+}
+
+.brand small {
+  display:block;
+  font-family:sans-serif;
+  font-size:10px;
+  letter-spacing:.12em;
+  margin-top:6px
+}
+
+.nav-cta {
+  font-size:14px;
+  border-bottom:1px solid #a38a60;
+  padding:10px 0
+}
+
+.nav-cta span {
+  margin-left:30px
+}
+
+
+/* ==================== HERO ==================== */
+.hero {
+  position:relative;
+  min-height:760px;
+  background:#0e202d;
+  color:white;
+  overflow:hidden
+}
+
+.hero-img {
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,rgba(7,23,34,.86),rgba(7,23,34,.32) 55%,rgba(7,23,34,.05)),url('assets/hero.jpg') center/cover
+}
+
+.hero-content {
+  position:relative;
+  max-width:1280px;
+  margin:auto;
+  padding:72px 7% 95px
+}
+
+.eyebrow {
+  font-size:12px;
+  letter-spacing:.2em;
+  font-weight:600;
+  margin:0 0 25px;
+  color:#a58145
+}
+
+.hero .eyebrow {
+  color:var(--gold)
+}
+
+.intro {
+  font-size:16px;
+  letter-spacing:.13em
+}
+
+h1,h2,h3,p {
+  margin-top:0
+}
+
+
+/* ==================== INVITATION 招待 ==================== */
+h1,h2,.invitation h3 {
+  font-family:'Yu Mincho','Hiragino Mincho ProN','Noto Serif JP',serif;
+  font-weight:500
+}
+
+h1 {
+  font-size:clamp(48px,5.7vw,80px);
+  line-height:1.5;
+  letter-spacing:.09em;
+  margin-bottom:22px
+}
+
+em {
+  font-style:normal;
+  color:var(--gold)
+}
+
+.hero-copy {
+  font-size:17px;
+  line-height:2
+}
+
+.button {
+  display:inline-flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+  padding:17px 27px;
+  font-size:15px;
+  font-weight:600;
+  border:0;
+  min-height:56px;
+  transition:filter .2s,transform .2s
+}
+
+.button:hover {
+  filter:brightness(1.08);
+  transform:translateY(-2px)
+}
+
+.gold {
+  background:var(--gold);
+  color:#172c36
+}
+
+.hero-bottom {
+  position:absolute;
+  bottom:22px;
+  left:7%;
+  right:7%;
+  display:flex;
+  justify-content:space-between;
+  font-size:11px;
+  letter-spacing:.17em;
+  color:#e0e4e5
+}
+
+.wrap {
+  max-width:1160px;
+  margin:auto;
+  padding:110px 50px
+}
+
+h2 {
+  font-size:clamp(30px,3.4vw,46px);
+  line-height:1.75;
+  letter-spacing:.055em
+}
+
+h2 span {
+  color:#687b83
+}
+
+
+/* ==================== LETTER 社長への手紙 ==================== */
+.letter {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  column-gap:55px
+}
+
+.letter>.eyebrow {
+  grid-column:1/-1
+}
+
+.letter h2 {
+  font-size:40px
+}
+
+.letter h2 span {
+  font-size:27px
+}
+
+.letter-text p {
+  margin:0 0 25px
+}
+
+.strong {
+  font-weight:600
+}
+
+
+/* ==================== BELIEF 信じていること ==================== */
+.belief {
+  background:var(--navy);
+  color:#fff;
+  text-align:center
+}
+
+.belief .wrap {
+  padding-top:95px;
+  padding-bottom:85px
+}
+
+.belief-lead {
+  color:#ccd6dc
+}
+
+.bridge {
+  margin:50px 0 42px;
+  display:grid;
+  grid-template-columns:1fr 160px 1fr;
+  align-items:center;
+  text-align:left
+}
+
+.bridge>div:not(.bridge-line) {
+  padding:25px 30px;
+  border-top:1px solid #61727b;
+  border-bottom:1px solid #61727b
+}
+
+.bridge span {
+  font-size:13px;
+  color:var(--gold);
+  letter-spacing:.12em
+}
+
+.bridge h3 {
+  font-size:23px;
+  margin:12px 0
+}
+
+.bridge p {
+  font-size:15px;
+  color:#c6d0d6;
+  margin:0
+}
+
+.bridge-line {
+  text-align:center;
+  font-size:11px;
+  letter-spacing:.1em;
+  color:var(--gold)
+}
+
+.belief-note {
+  font-size:19px;
+  margin:0
+}
+
+
+/* ==================== OUTSIDE 会社の外の人生 ==================== */
+.outside {
+  display:grid;
+  grid-template-columns:1fr 1.1fr;
+  gap:65px
+}
+
+.concerns>div {
+  border-bottom:1px solid #dce1e2;
+  padding:0 0 18px;
+  margin-bottom:25px
+}
+
+.concerns span {
+  font-size:12px;
+  color:#8a6a37;
+  letter-spacing:.12em
+}
+
+.concerns p {
+  font-size:18px;
+  margin:8px 0
+}
+
+.concerns .concerns-end {
+  font-size:16px;
+  color:var(--muted);
+  margin-top:30px
+}
+
+
+/* ==================== SYSTEM 仕組み ==================== */
+.system {
+  background:#eef2f3
+}
+
+.system h2 {
+  font-size:37px
+}
+
+.system h2 span {
+  font-size:30px
+}
+
+.section-lead {
+  color:var(--muted)
+}
+
+
+/* ==================== FEATURES 3つの機能 ==================== */
+.features {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  margin-top:45px;
+  background:white
+}
+
+.features article {
+  position:relative;
+  padding:32px 29px;
+  border-right:1px solid #e3e7e8
+}
+
+.features article:last-child {
+  border:0
+}
+
+.number {
+  font:42px Georgia,serif;
+  color:#b4935c
+}
+
+.feature-tag {
+  font-size:13px;
+  margin:20px 0 8px;
+  color:#7f622f;
+  letter-spacing:.1em
+}
+
+.features h3 {
+  font-size:23px;
+  line-height:1.7
+}
+
+.features article>p:not(.feature-tag) {
+  font-size:15px;
+  color:var(--muted)
+}
+
+.features small {
+  font-size:11px;
+  color:#707f85;
+  line-height:1.6;
+  display:block
+}
+
+
+/* ==================== MARKET マーケット ==================== */
+.market {
+  display:flex;
+  gap:60px;
+  align-items:center;
+  padding:28px 0;
+  border-bottom:1px solid #cbd5d9;
+  margin-top:25px
+}
+
+.market>p {
+  font-weight:600;
+  margin:0
+}
+
+.market h3 {
+  font-size:19px;
+  margin:0
+}
+
+.market div p {
+  font-size:14px;
+  margin:4px 0 0
+}
+
+.privacy {
+  font-size:12px;
+  color:#64767e;
+  max-width:750px;
+  margin:25px 0 0
+}
+
+
+/* ==================== RIPPLE 波紋 ==================== */
+.ripple {
+  text-align:center
+}
+
+.ripple h2 {
+  font-size:39px
+}
+
+.ripple h2 span {
+  font-size:30px
+}
+
+.ripple-words {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:27px;
+  margin:50px 0;
+  color:#856431
+}
+
+.ripple-words span {
+  padding:12px 0;
+  border-bottom:1px solid #b79a69;
+  letter-spacing:.08em
+}
+
+.ripple-words i {
+  font-style:normal;
+  color:#a8b1b4
+}
+
+.ripple>p:not(.eyebrow) {
+  color:var(--muted)
+}
+
+.ripple .ripple-last {
+  font-family:'Yu Mincho',serif;
+  font-size:24px;
+  color:var(--ink)!important;
+  margin-top:35px
+}
+
+
+/* ==================== JOURNEY 旅 ==================== */
+.journey {
+  background:#102736;
+  color:#fff
+}
+
+.journey-inner {
+  display:grid;
+  grid-template-columns:1.25fr 1fr;
+  gap:75px;
+  align-items:center
+}
+
+.journey h2 {
+  font-size:44px
+}
+
+.journey-inner>div>p:not(.eyebrow) {
+  font-size:15px;
+  color:#d0d9de
+}
+
+.invitation {
+  border:1px solid #957c53;
+  padding:44px 32px;
+  text-align:center;
+  position:relative
+}
+
+.invitation:before {
+  content:'';
+  position:absolute;
+  inset:7px;
+  border:1px solid #415057;
+  pointer-events:none
+}
+
+.invitation .eyebrow {
+  font-size:10px
+}
+
+.invitation h3 {
+  font-size:37px;
+  line-height:1.7;
+  letter-spacing:.1em
+}
+
+.invitation-rule {
+  height:1px;
+  background:#8b7757;
+  width:40px;
+  margin:25px auto
+}
+
+.invitation .button {
+  width:100%;
+  margin-top:10px;
+  font-size:14px
+}
+
+.small {
+  font-size:11px!important;
+  margin:13px 0 0
+}
+
+
+/* ==================== FOOTER ==================== */
+footer {
+  padding:45px 6%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px
+}
+
+footer>p {
+  font-size:13px;
+  margin:0
+}
+
+footer>small {
+  font-size:10px;
+  color:#66757d
+}
+
+
+/* ==================== DIALOG モーダル ==================== */
+dialog {
+  border:1px solid #c5b187;
+  padding:45px;
+  max-width:540px;
+  width:calc(100% - 32px);
+  background:var(--paper);
+  color:var(--ink)
+}
+
+dialog::backdrop {
+  background:#04111cbb;
+  backdrop-filter:blur(4px)
+}
+
+dialog h2 {
+  font-size:29px
+}
+
+dialog p {
+  font-size:15px
+}
+
+dialog .close {
+  position:absolute;
+  right:15px;
+  top:8px;
+  border:0;
+  background:transparent;
+  font-size:30px
+}
+
+#copy-status {
+  font-size:13px;
+  margin:15px 0 0
+}
+
+a:focus-visible,button:focus-visible {
+  outline:3px solid #bd8c34;
+  outline-offset:5px
+}
+
+.mobile {
+  display:none
+}
+
+
+/* ==================== RESPONSIVE レスポンシブ ==================== */
+@media(max-width:760px) {
+  header {
+    height:74px;
+    padding:0 6%
+  }
+  .brand {
+    font-size:18px
+  }
+  .brand small {
+    font-size:8px
+  }
+  .nav-cta {
+    font-size:11px
+  }
+  .nav-cta span {
+    margin-left:7px
+  }
+  .hero {
+    min-height:760px
+  }
+  .hero-content {
+    padding:67px 7% 90px
+  }
+  .hero-img {
+    background-position:61% center;
+    background-image:linear-gradient(90deg,rgba(7,23,34,.89),rgba(7,23,34,.55)),url('assets/hero.jpg')
+  }
+  h1 {
+    font-size:52px
+  }
+  .hero .intro {
+    font-size:13px
+  }
+  .hero-copy {
+    font-size:16px
+  }
+  .hero-bottom span:last-child {
+    display:none
+  }
+  .wrap {
+    padding:74px 7%
+  }
+  .letter,.outside,.journey-inner {
+    display:block
+  }
+  .letter h2 {
+    font-size:33px;
+    margin-bottom:36px
+  }
+  .letter h2 span {
+    font-size:24px
+  }
+  .letter-text {
+    font-size:15px
+  }
+  .belief .wrap {
+    padding:70px 7%
+  }
+  .belief h2 {
+    font-size:30px
+  }
+  .belief-lead {
+    font-size:14px
+  }
+  .bridge {
+    grid-template-columns:1fr;
+    margin:35px 0
+  }
+  .bridge-line {
+    padding:20px
+  }
+  .bridge h3 {
+    font-size:22px
+  }
+  .belief-note {
+    font-size:16px
+  }
+  .outside h2 {
+    margin-bottom:36px
+  }
+  .concerns p {
+    font-size:16px
+  }
+  .system h2 {
+    font-size:27px
+  }
+  .system h2 span {
+    font-size:23px
+  }
+  .section-lead {
+    font-size:14px
+  }
+  .features {
+    grid-template-columns:1fr
+  }
+  .features article {
+    border-right:0;
+    border-bottom:1px solid #e3e7e8;
+    padding:28px
+  }
+  .features h3 br {
+    display:none
+  }
+  .features h3 {
+    font-size:22px
+  }
+  .feature-tag {
+    margin-top:12px
+  }
+  .market {
+    display:block
+  }
+  .market>p {
+    margin-bottom:14px
+  }
+  .ripple h2 {
+    font-size:29px
+  }
+  .ripple h2 span {
+    font-size:23px
+  }
+  .ripple-words {
+    flex-wrap:wrap;
+    gap:13px;
+    font-size:13px;
+    margin:30px 0
+  }
+  .ripple-words i {
+    font-size:12px
+  }
+  .ripple>p {
+    font-size:14px
+  }
+  .ripple .ripple-last {
+    font-size:21px
+  }
+  .journey h2 {
+    font-size:38px
+  }
+  .journey-inner>div>p:not(.eyebrow) {
+    font-size:14px
+  }
+  .invitation {
+    margin-top:45px;
+    padding:38px 25px
+  }
+  .invitation h3 {
+    font-size:34px
+  }
+  footer {
+    flex-direction:column;
+    align-items:flex-start;
+    padding:35px 7%;
+    gap:20px
+  }
+  .mobile {
+    display:block
+  }
+  dialog {
+    padding:35px 24px
+  }
+  .button {
+    font-size:14px
+  }
+  .hero-bottom {
+    font-size:10px
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  html {
+    scroll-behavior:auto
+  }
+  * {
+    transition:none!important
+  }
+}
