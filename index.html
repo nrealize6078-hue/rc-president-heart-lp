@@ -32,7 +32,10 @@
           <p class="intro">社員の幸せを、願ってきたあなたへ。</p>
           <h1>その想いは、<br>まだ、<br><em>もっと届く。</em></h1>
           <p class="hero-copy">社員を大切にしたい。<br>その気持ちを、社員と家族の<br class="mobile">人生を支える仕組みへ。</p>
-          <a class="button gold" href="#letter">想いを、仕組みに変える <span>↓</span></a>
+          <div class="hero-actions">
+            <a class="button gold" href="#letter">想いを、仕組みに変える <span>↓</span></a>
+            <a class="button white" href="https://lin.ee/8jf4Da7" target="_blank" rel="noopener">LINEで相談する <span>↗</span></a>
+          </div>
         </div>
         <div class="hero-bottom"><span>人を想う経営に、次の一歩を。</span><span>REALIZE CLUB</span>
         </div>
@@ -142,8 +145,11 @@
             <div class="invitation-rule">
             </div>
             <p>その想いを、社員の人生に届く<br>仕組みに変えてみませんか。</p>
-            <button class="button gold" id="invite">旅のはじめ方を見る <span>↗</span></button>
-            <p class="small">PRESIDENT JOURNEYへのご案内</p>
+            <a class="button gold" href="https://lin.ee/8jf4Da7" target="_blank" rel="noopener">旅のはじめ方を見る <span>↗</span></a>
+            <a class="line-cta" href="https://lin.ee/8jf4Da7" target="_blank" rel="noopener" aria-label="LINEで友だち追加">
+              <img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36">
+            </a>
+            <p class="small">LINEでご相談・ご案内を承ります</p>
           </div>
         </div>
       </section>
@@ -154,14 +160,10 @@
       <p>人は、幸せになるために生きている。</p>
       <small>© REALIZE CLUB</small>
     </footer>
-    <dialog id="guide"><button class="close" aria-label="閉じる">×</button>
-      <p class="eyebrow">PRESIDENT JOURNEY</p>
-      <h2>あなたの原点から、<br>はじまる旅。</h2>
-      <p>ご案内担当者から届く専用のLINE登録リンクより、PRESIDENT JOURNEYにお進みいただけます。</p>
-      <p>このページをご案内した担当者へ<br>「PRESIDENT JOURNEYを体験したい」<br>とお伝えください。</p>
-      <button class="button gold" id="copy">案内を希望する文章をコピー</button>
-      <p id="copy-status" role="status"></p>
-    </dialog>
+    <div class="cta-bar" id="ctabar" hidden>
+      <span>社長の想いから、はじめませんか。</span>
+      <a class="bar-btn" href="https://lin.ee/8jf4Da7" target="_blank" rel="noopener">LINEで相談する</a>
+    </div>
   <script src="script.js"></script>
 </body>
 </html>

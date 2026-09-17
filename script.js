@@ -1,42 +1,33 @@
-/* PRESIDENT JOURNEY 案内モーダル
-   元サイトにはこの動作のJSが含まれていなかったため、
-   ボタンが機能するよう最小構成で補完したもの。 */
+/* 固定ボトムバーの出し入れと、LINE公式ボタンの読み込み失敗時の差し替え。
+   ファーストビューを抜けたらバーを出す（IntersectionObserver）。 */
 (function () {
-  var dialog = document.getElementById('guide');
-  var invite = document.getElementById('invite');
-  var copyBtn = document.getElementById('copy');
-  var status = document.getElementById('copy-status');
-  if (!dialog) return;
+  var bar = document.getElementById('ctabar');
+  var hero = document.querySelector('.hero');
 
-  // 「旅のはじめ方を見る」→ モーダルを開く
-  if (invite) {
-    invite.addEventListener('click', function () {
-      if (typeof dialog.showModal === 'function') dialog.showModal();
-      else dialog.setAttribute('open', '');
-    });
+  if (bar && hero) {
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        // ヒーローが画面から出たら表示
+        bar.hidden = entries[0].isIntersecting;
+      }, { threshold: 0.12 }).observe(hero);
+    } else {
+      // 古い端末向け。スクロール量で判定する
+      var onScroll = function () {
+        bar.hidden = window.scrollY < hero.offsetHeight * 0.85;
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
   }
 
-  // 「×」→ 閉じる
-  var close = dialog.querySelector('.close');
-  if (close) {
-    close.addEventListener('click', function () {
-      if (typeof dialog.close === 'function') dialog.close();
-      else dialog.removeAttribute('open');
-    });
-  }
-
-  // 案内希望の定型文をコピー
-  var MESSAGE = 'PRESIDENT JOURNEYを体験したいです。ご案内をお願いいたします。';
-  if (copyBtn) {
-    copyBtn.addEventListener('click', function () {
-      function done(ok) {
-        if (status) status.textContent = ok ? 'コピーしました。担当者へそのまま送信してください。' : 'コピーできませんでした。文章を長押しして選択してください。';
-      }
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(MESSAGE).then(function () { done(true); }, function () { done(false); });
-      } else {
-        done(false);
-      }
+  // LINE公式の画像が読めなかったときは緑のボタンに置き換える
+  var img = document.querySelector('.line-cta img');
+  if (img) {
+    img.addEventListener('error', function () {
+      var a = img.parentNode;
+      img.remove();
+      a.classList.add('is-fallback');
+      a.textContent = 'LINEで友だち追加';
     });
   }
 })();
