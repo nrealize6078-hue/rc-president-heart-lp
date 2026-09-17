@@ -616,7 +616,7 @@ a:focus-visible,button:focus-visible {
     background-image:linear-gradient(90deg,rgba(7,23,34,.89),rgba(7,23,34,.55)),url('assets/hero.jpg')
   }
   h1 {
-    font-size:52px
+    font-size:clamp(34px,12.5vw,52px)
   }
   .hero .intro {
     font-size:13px
@@ -634,23 +634,23 @@ a:focus-visible,button:focus-visible {
     display:block
   }
   .letter h2 {
-    font-size:33px;
+    font-size:clamp(22px,7.7vw,33px);
     margin-bottom:36px
   }
   .letter h2 span {
-    font-size:24px
+    font-size:clamp(17px,5.6vw,27px)
   }
   .letter-text {
-    font-size:15px
+    font-size:clamp(12px,4.3vw,15px)
   }
   .belief .wrap {
     padding:70px 7%
   }
   .belief h2 {
-    font-size:30px
+    font-size:clamp(21px,7.8vw,30px)
   }
   .belief-lead {
-    font-size:14px
+    font-size:clamp(11px,3.9vw,14px)
   }
   .bridge {
     grid-template-columns:1fr;
@@ -663,7 +663,7 @@ a:focus-visible,button:focus-visible {
     font-size:22px
   }
   .belief-note {
-    font-size:16px
+    font-size:clamp(11px,3.8vw,16px)
   }
   .outside h2 {
     margin-bottom:36px
@@ -672,13 +672,13 @@ a:focus-visible,button:focus-visible {
     font-size:16px
   }
   .system h2 {
-    font-size:27px
+    font-size:clamp(17px,5.5vw,27px)
   }
   .system h2 span {
-    font-size:23px
+    font-size:clamp(15px,4.8vw,23px)
   }
   .section-lead {
-    font-size:14px
+    font-size:clamp(11px,4vw,14px)
   }
   .features {
     grid-template-columns:1fr
@@ -687,9 +687,6 @@ a:focus-visible,button:focus-visible {
     border-right:0;
     border-bottom:1px solid #e3e7e8;
     padding:28px
-  }
-  .features h3 br {
-    display:none
   }
   .features h3 {
     font-size:22px
@@ -704,10 +701,10 @@ a:focus-visible,button:focus-visible {
     margin-bottom:14px
   }
   .ripple h2 {
-    font-size:29px
+    font-size:clamp(20px,6.4vw,29px)
   }
   .ripple h2 span {
-    font-size:23px
+    font-size:clamp(16px,5.4vw,23px)
   }
   .ripple-words {
     flex-wrap:wrap;
@@ -719,23 +716,23 @@ a:focus-visible,button:focus-visible {
     font-size:12px
   }
   .ripple>p {
-    font-size:14px
+    font-size:clamp(11px,3.3vw,14px)
   }
   .ripple .ripple-last {
-    font-size:21px
+    font-size:clamp(14px,4.4vw,21px)
   }
   .journey h2 {
-    font-size:38px
+    font-size:clamp(26px,9.8vw,38px)
   }
   .journey-inner>div>p:not(.eyebrow) {
-    font-size:14px
+    font-size:clamp(11px,3.3vw,14px)
   }
   .invitation {
     margin-top:45px;
     padding:38px 25px
   }
   .invitation h3 {
-    font-size:34px
+    font-size:clamp(22px,8.7vw,34px)
   }
   footer {
     flex-direction:column;
@@ -763,5 +760,17 @@ a:focus-visible,button:focus-visible {
   }
   * {
     transition:none!important
+  }
+}
+
+/* ── 日本語の折り返し（本文の保険）──
+   text-wrap:pretty で行末に1文字だけ残るのを避け、
+   対応ブラウザーでは word-break:auto-phrase で文節ごとに折り返す。 */
+h1,h2,h3,p,.bridge-line,.ripple-words {
+  text-wrap:pretty
+}
+@supports (word-break:auto-phrase) {
+  h1,h2,h3,p,.bridge-line {
+    word-break:auto-phrase
   }
 }
