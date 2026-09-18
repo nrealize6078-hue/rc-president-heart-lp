@@ -145,3 +145,39 @@ br.sp{display:none}
 @media(max-width:339px){
   .cta-bar>span{display:none}
 }
+
+/* ===== LIFE JOURNEY（社員向けLP）への入口 2026-09-18 ===== */
+/* 仕組みの章の最後。新デザインを金ボタン、旧デザインを控えめな文字リンクに */
+.lj-entry{margin-top:64px;padding-top:48px;border-top:1px solid rgba(16,43,64,.14);text-align:center}
+.lj-entry-label{font-size:.8125rem;letter-spacing:.2em;color:var(--gold,#a3793d)}
+.lj-entry-title{margin-top:14px;font-family:var(--serif);font-weight:500;font-size:clamp(1.35rem,2.4vw,1.9rem);line-height:1.7;color:var(--navy,#102b40)}
+.lj-entry-text{margin-top:16px;font-size:.9375rem;line-height:2;color:#5b6974}
+.lj-entry-actions{display:flex;flex-direction:column;align-items:center;gap:18px;margin-top:32px}
+.lj-entry-new{width:auto!important;min-width:280px}
+.lj-entry-old{font-size:.875rem;letter-spacing:.06em;color:#5b6974;border-bottom:1px solid rgba(91,105,116,.4);padding-bottom:2px}
+.lj-entry-old:hover{color:var(--navy,#102b40);border-bottom-color:currentColor}
+@media(max-width:520px){
+  .lj-entry{margin-top:48px;padding-top:40px}
+  .lj-entry-new{width:100%!important;min-width:0}
+}
+
+/* ===== REALIZE CLUB（LIFE JOURNEY）への文字リンク：各章の最後に控えめに ===== */
+/* 背景が紺でも生成りでも読めるよう、色は周りの文字色を引き継ぐ */
+.rc-link-row{margin-top:36px;text-align:center}
+.rc-link-row--left{text-align:left}
+.rc-link{display:inline-block;color:inherit;font-size:.9375rem;letter-spacing:.06em;line-height:1.8;
+  border-bottom:1px solid currentColor;padding-bottom:2px;opacity:.88;transition:opacity .2s}
+.rc-link:hover{opacity:1}
+.hero .rc-link-row{margin-top:22px;text-align:left}
+.invitation .rc-link-row{margin-top:20px}
+.footer-links{margin-top:14px;font-size:.8125rem}
+.footer-links .rc-link{font-size:.8125rem}
+.footer-links span{margin-inline:10px;opacity:.5}
+.nav-rc{margin-left:auto;margin-right:24px;font-size:.875rem;letter-spacing:.06em;color:inherit;border-bottom:1px solid transparent}
+.nav-rc:hover{border-bottom-color:currentColor}
+@media(max-width:760px){.nav-rc{display:none}}
+@media(max-width:1024px){.hero .rc-link-row{text-align:center}}
+@media(max-width:520px){
+  .footer-links{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+  .footer-links span{display:none}
+}
