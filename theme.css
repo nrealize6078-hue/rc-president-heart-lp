@@ -1,0 +1,147 @@
+/* =====================================================================
+   theme.css — 2026年9月18日 デザイン刷新（文章は変えず、見せ方だけを変える）
+   style.css の後に読み込み、上書きする。
+   方針
+   - 色：紺と金はそのまま。明るい面は温かみのあるアイボリーに
+   - 形：写真・カード・ボタンを角丸に。影はごく薄く
+   - 文章の前の装飾線・矢印・写真に重ねる黒い影は使わない
+   ===================================================================== */
+
+:root{
+  --ivory:#f6f3ec;
+  --paper:#fbfaf7;
+  --line:#e6e0d4;
+  --ink:#1c2b36;
+  --muted:#5b6870;
+  --gold-deep:#8a6a33;
+  --radius-lg:28px;
+  --radius-md:20px;
+  --radius-sm:14px;
+  --soft-shadow:0 18px 50px rgba(16,39,54,.08);
+}
+body{background:var(--paper);color:var(--ink)}
+
+/* ---------- ヘッダー：Bマーク＋ロゴ、半透明の白 ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(251,250,247,.9);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid rgba(16,39,54,.06)}
+.brand{display:flex;align-items:center;white-space:nowrap}
+.brand-mark{width:40px;height:40px;flex:none;margin-right:12px}
+.brand-text{display:block}
+/* ナビ：下線ではなく細い枠のピル */
+.nav-cta{border:1px solid rgba(138,106,51,.45);border-radius:999px;padding:9px 20px;color:var(--gold-deep);
+  font-weight:600;transition:background .2s,color .2s}
+.nav-cta:hover{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+
+/* ---------- ボタン：角丸（ピル型）・矢印なし ---------- */
+.button{border-radius:999px;justify-content:center;gap:0;padding:17px 34px;letter-spacing:.06em}
+.button:hover{filter:none;transform:translateY(-1px);box-shadow:0 10px 24px rgba(7,23,34,.18)}
+.bar-btn{border-radius:999px}
+
+/* ---------- ファーストビュー：写真に影を重ねない ---------- */
+.hero{background:var(--navy);min-height:0}
+.hero-img{background:url('assets/hero.jpg') center/cover no-repeat!important}
+
+/* PC：紺地の左に文字、右に角丸の写真 */
+@media(min-width:1025px){
+  .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);align-items:stretch}
+  .hero-img{position:relative;inset:auto;grid-column:2;grid-row:1;margin:28px 28px 28px 0;
+    border-radius:var(--radius-lg);min-height:640px;background-position:62% center!important}
+  .hero-content{grid-column:1;grid-row:1;align-self:center;max-width:none;margin:0;box-sizing:border-box;
+    padding:72px 48px 80px max(56px,calc((100vw - 1240px)/2))}
+}
+/* タブレット・スマホ：写真が上、文字が下（重ねない） */
+@media(max-width:1024px){
+  .hero{display:flex;flex-direction:column}
+  .hero-img{position:relative;inset:auto;aspect-ratio:3/2;margin:16px 16px 0;border-radius:var(--radius-md);
+    background-position:64% center!important}
+  .hero-content{padding:40px 7% 56px}
+}
+
+/* ---------- 01 社長への手紙 ---------- */
+.letter-text{color:var(--ink)}
+
+/* ---------- 信じていること：線で囲った箱 → 角丸カード ---------- */
+.bridge{gap:18px}
+.bridge>div:not(.bridge-line){border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-md);
+  background:rgba(255,255,255,.05);padding:28px 30px}
+.bridge-line{justify-self:center;padding:8px 18px;border:1px solid rgba(222,189,128,.5);border-radius:999px;
+  font-size:11px;white-space:nowrap}
+
+/* ---------- 会社から見えない人生 ---------- */
+.outside{background:none}
+.concerns>div{border-bottom-color:var(--line)}
+
+/* ---------- 仕組み：3つの機能をカードに ---------- */
+.system{background:var(--ivory)}
+.features{background:none;gap:20px}
+.features article{background:#fff;border:1px solid var(--line)!important;border-radius:var(--radius-md);
+  box-shadow:var(--soft-shadow);padding:34px 30px}
+.number{font-size:34px;font-style:italic;color:#b4935c}
+.market{background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);padding:26px 32px}
+.privacy{color:var(--muted)}
+
+/* ---------- 波紋：4つの言葉を札（ピル）で並べる。矢印なし ---------- */
+.ripple-words{display:flex!important;flex-direction:row!important;flex-wrap:wrap!important;justify-content:center;
+  gap:12px!important;margin:44px auto!important}
+.ripple-words span{width:auto!important;padding:11px 24px!important;border:1px solid rgba(138,106,51,.4)!important;
+  border-radius:999px;background:#fff;color:var(--gold-deep);text-align:center}
+@media(max-width:760px){
+  /* 2×2 で揃える */
+  .ripple-words{display:grid!important;grid-template-columns:1fr 1fr;max-width:340px;gap:10px!important;margin:30px auto!important}
+  .ripple-words span{padding:11px 8px!important;font-size:14px}
+}
+
+/* ---------- 旅と招待：二重枠・短い横線をやめて角丸カード ---------- */
+.journey{background:linear-gradient(180deg,#0f2535 0%,#112c3f 100%)}
+.invitation{border:1px solid rgba(222,189,128,.45);border-radius:var(--radius-lg);background:rgba(255,255,255,.04)}
+.invitation:before{content:none!important;display:none!important}
+.invitation h3{margin-bottom:22px}
+.line-cta img{margin:0 auto}
+.line-cta{display:block;width:max-content;margin:18px auto 0}
+
+/* ---------- フッター ---------- */
+footer{background:var(--ivory)}
+footer .brand-mark{width:36px;height:36px}
+
+/* ---------- 固定バー ---------- */
+.cta-bar{background:rgba(16,39,54,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+
+/* ---------- スマホ ---------- */
+@media(max-width:760px){
+  header{height:66px}
+  .brand-mark{width:32px;height:32px;margin-right:9px}
+  .nav-cta{padding:7px 13px}
+  .hero-actions .button{width:100%}
+  .features article{padding:28px 24px}
+  .market{display:block;padding:22px 22px}
+}
+@media(max-width:430px){
+  /* Bマーク＋ロゴでヘッダーが2段にならないよう、スマホではナビを省く（下の固定バーが同じ役目） */
+  .nav-cta{display:none}
+}
+
+/* ---------- 文節（w-b）：スマホでは文節の途中で折り返さない ---------- */
+w-b{display:inline}
+@media(max-width:760px){
+  w-b{display:inline-block;max-width:100%;overflow-wrap:anywhere}
+}
+
+/* ---------- スマホだけの改行（文節の切れ目に入れてある） ---------- */
+br.sp{display:none}
+@media(max-width:520px){br.sp{display:inline}}
+
+/* ---------- どのスマホでも同じ位置で改行させる ----------
+   各要素の --fit は「320px幅で <br> 区切りの各行が1行に収まる大きさ」を実測した値（vw）。
+   vw比例なので、320pxで収まれば幅の広い機種でも必ず収まる。--fit-cap は元の大きさ（これより大きくしない）。
+   文章を変えたら _measure.js の __fit で測り直すこと（README参照） */
+@media(max-width:520px){
+  [data-fit]{font-size:min(var(--fit-cap),var(--fit))!important}
+}
+
+/* ---------- 固定バーの一文は1行で。入りきらない幅ではボタンだけにする ---------- */
+@media(max-width:760px){
+  .cta-bar>span{white-space:nowrap;font-size:min(12px,3vw);letter-spacing:0}
+}
+@media(max-width:339px){
+  .cta-bar>span{display:none}
+}
